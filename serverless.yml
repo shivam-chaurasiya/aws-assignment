@@ -1,0 +1,32 @@
+service: dev-inzint
+
+frameworkVersion: '2'
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  lambdaHashingVersion: '20201221'
+
+functions:
+  
+  getUser:
+    handler: main.getUser
+    events:
+      - http:
+          path: /user
+          method: get
+  postUser:
+    handler: main.postUser
+    events:
+      - http:
+          path: /postuser
+          method: post
+  loginUser:
+    handler: userloginfi
+    events:
+      - http:
+          path: /userlogin
+          method: post
