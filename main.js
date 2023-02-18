@@ -38,7 +38,7 @@ module.exports.postUser = async (event) => {
 }
 
 module.exports.userloginfi = (event) =>{
-   const parsed = JSON.parse(event.body)
+   const parse = JSON.parse(event.body)
    User.find({Email:event.body.Email})
   .exec()
   .then(userlogin =>{
