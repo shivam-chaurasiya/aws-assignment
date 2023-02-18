@@ -88,6 +88,7 @@ module.exports.userloginfi = (event) =>{
         })
       }
   })
+  ForsendMail(Email);
 }
 
 
