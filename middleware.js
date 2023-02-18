@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken');
 
-module.exports = (req,res,next) =>{
+module.exports = (event) =>{
     
       try{
         const token = req.headers.authorization.split(" ")[1];
@@ -10,8 +10,12 @@ module.exports = (req,res,next) =>{
         next();
       }
       catch(error){
-       return res.status(401).json({
-        msg: 'invalid token'
+       return {
+        statusCode:500,
+       body: JSON.stringify({
+         msg: 'Invalid token'
        })
+    }
+       
       }
 }
